@@ -3,6 +3,7 @@ A very simple third person controller including character movement- and camera s
 
 ###Setup:
 *It is highly recommended to check out the included example scene, to get a grasp on what the scripts' public values should look like.*
+
 1. Set up a scene with main camera and a player object with character controller (remember to tag them as player and main camera if necessary)
 
 2. Set the layer of the player object to something like "Player Layer" (this is important to have the camera ignore the player when trying to compensate for obstacles - alternatively you can go and change the layermask directly)
