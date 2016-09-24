@@ -13,6 +13,7 @@ A very simple third person controller including character movement- and camera s
 4. Put in some reasonable values for speeds
 
 There is an optional step three:
+
 3.1 Instead of directly assigning the transforms to each other you can add another gameObject to your scene (make sure it's nobody's child)
 
 3.2 Add to it the breathe script, than put its transform into the CameraMovement component
