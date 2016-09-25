@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
 	Animator anim;
 	CharacterController controller;
+	public float ySpeed;
 
 	[HideInInspector] public bool orbit, walking;
 
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update() 
 	{
+		//ySpeed = controller.velocity.y;
+
 		h = Input.GetAxisRaw ("Horizontal");
 		v = Input.GetAxisRaw ("Vertical");
 
@@ -35,14 +38,11 @@ public class PlayerMovement : MonoBehaviour
 		HandleRotation ();
 
 		anim.SetBool("move", walking);
-
-		if(!controller.isGrounded){
-			movement.y -= gravity;
-		}
 	}
 
 	void FixedUpdate()
 	{
+		movement.y = VerticalSpeed();
 		controller.Move (movement * Time.deltaTime);	
 	}
 
@@ -55,6 +55,17 @@ public class PlayerMovement : MonoBehaviour
 			
 		movement = movement.normalized * speed;
     }
+
+	float VerticalSpeed()
+	{
+		if (!controller.isGrounded) {
+			ySpeed -= gravity * Time.deltaTime;
+		} else {
+			ySpeed = 0f;
+		}
+
+		return ySpeed;
+	}
 
 	void HandleRotation()
 	{

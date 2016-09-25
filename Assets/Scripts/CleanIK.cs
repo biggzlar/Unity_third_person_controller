@@ -118,9 +118,9 @@ public class CleanIK : MonoBehaviour {
 	private void stateBasedLegDistance()
 	{
 		if (agent) {
-			legDistance = (1 / (planeSpeed (agent) + 0.1f));
+			legDistance = (1 / (planeSpeed (agent) + 0.8f));
 		} else {
-			legDistance = (1 / (planeSpeed (controller) + 0.1f));
+			legDistance = (1 / (planeSpeed (controller) + 0.8f));
 		}
 	}
 
